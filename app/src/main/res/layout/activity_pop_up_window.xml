@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    tools:context=".PopUpWindow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:layout_width="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/homeicon"
+                android:id="@+id/logo_sort"
+                android:layout_height="@dimen/_20sdp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:id="@+id/title"
+            android:textSize="@dimen/_15sdp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/colorAccent"/>
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:src="@drawable/homeicon"
+            android:id="@+id/home"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/_50sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Home Screen"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="This app will be accessible your home sreen "
+            android:textSize="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+
+
+    </LinearLayout>
+</RelativeLayout>

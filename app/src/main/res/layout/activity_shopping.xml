@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShoppingActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#232f3e"
+        app:titleTextAppearance="@style/RobotoBoldTextAppearance"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+
+        <android.support.v7.widget.SearchView
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:queryHint="Search Products"
+            android:id="@+id/search_view_store"
+            android:background="@drawable/searchviewback"
+            android:layout_margin="10dp"
+            android:padding="10dp">
+
+
+        </android.support.v7.widget.SearchView>
+
+    </android.support.v7.widget.Toolbar>
+<RelativeLayout
+    android:id="@+id/lay"
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TabLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+
+         android:layout_height="@dimen/_30sdp"
+
+        android:background="@color/white"
+        app:tabMaxWidth="0dp"
+        app:tabIndicatorGravity="bottom"
+    app:tabIndicatorFullWidth="false"
+    app:tabPaddingEnd="10dp"
+    app:tabPaddingStart="10dp"
+    app:tabMode="fixed"
+        app:tabIconTint="@color/grey"
+    android:elevation="0dp"
+    app:tabTextColor="@color/grey"
+    app:tabSelectedTextColor="@color/white"
+    app:tabIndicatorColor="@color/grey"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+</RelativeLayout>
+    <com.goaffilate.app.utils.CustomViewPager
+        android:id="@+id/pager"
+        android:layout_above="@+id/lay"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+</RelativeLayout>

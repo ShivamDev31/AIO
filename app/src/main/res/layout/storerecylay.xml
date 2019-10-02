@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:id="@+id/lsjd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+
+            android:id="@+id/storeimage"
+            android:src="@drawable/shopicon"
+            android:layout_width="0dp"
+            android:scaleType="fitXY"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight=".20"
+            android:layout_height="@dimen/_50sdp" />
+
+
+        <LinearLayout
+            android:layout_weight=".80"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+
+                android:layout_width="@dimen/_220sdp"
+                android:text="Nice "
+                android:id="@+id/name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="@dimen/_220sdp"
+                android:text="Nice"
+                android:id="@+id/address"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/phim"
+                    android:layout_width="0dp"
+                    android:layout_weight=".10"
+                    android:src="@drawable/phone"
+                    android:layout_height="@dimen/_12sdp" />
+
+
+                <TextView
+                    android:id="@+id/ph"
+                    android:textSize="@dimen/_10sdp"
+                    android:text=""
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight=".60"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/walk"
+                    android:layout_width="0dp"
+                    android:layout_weight=".08"
+                    android:src="@drawable/walk"
+                    android:layout_height="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/distance"
+                    android:textSize="@dimen/_10sdp"
+                    android:text=""
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight=".20"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+<View
+    android:layout_width="@dimen/_220sdp"
+    android:background="@color/grey"
+    android:layout_marginTop="@dimen/_2sdp"
+    android:layout_marginLeft="@dimen/_80sdp"
+    android:layout_centerVertical="true"
+    android:layout_below="@+id/lsjd"
+    android:layout_height="@dimen/_1sdp"/>
+</RelativeLayout>

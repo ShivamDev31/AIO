@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:background="@drawable/backgron"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/second"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:fontFamily="monospace"
+                    android:layout_marginTop="450dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/text1"
+                    android:textStyle="bold"
+                    android:gravity="center"
+
+                    android:layout_marginBottom="20dp"
+
+                    android:text="200+ Apps in one place"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="90dp"
+                    android:id="@+id/text2"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:text="Save 1000 MB+ space on your phone.
+Use your daily apps for shopping,
+travels, hotels, news and many
+more in one place."/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

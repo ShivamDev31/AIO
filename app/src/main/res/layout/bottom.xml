@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/home_layout"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/rl_home"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/home_botton"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nav_home"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:id="@+id/home_text"
+
+                        android:layout_gravity="center"
+                        android:text="Home" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/stores_layout"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/rl_stores"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:id="@+id/stores_botton"
+                        android:layout_gravity="center"
+                        android:background="@drawable/stores"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nav_home"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:id="@+id/stores_text"
+                        android:layout_gravity="center"
+                        android:text="Stores" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/home_welcome"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/reward_layout"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:id="@+id/rl_rewards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <Button
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:id="@+id/rewards_botton"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rewards"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rewards"
+                        android:id="@+id/reward_text"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_below="@+id/nav_home"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:id="@+id/setting_layout"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:id="@+id/rl_more"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <Button
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:background="@drawable/more"
+                        android:id="@+id/setting_botton"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="More"
+                        android:id="@+id/more_text"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/nav_home"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

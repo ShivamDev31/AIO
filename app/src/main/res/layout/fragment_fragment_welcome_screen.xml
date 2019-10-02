@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Fragmnet_Home">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrool"
+        android:layout_below="@+id/app_bar"
+        android:visibility="visible"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <!--<RelativeLayout-->
+                <!--android:id="@+id/l1_new"-->
+                <!--android:background="@drawable/newgradient"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/_170sdp">-->
+
+                <!--<RelativeLayout-->
+
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/_105sdp"-->
+                <!--android:id="@+id/banner_l1"-->
+                <!--android:elevation="0dp">-->
+
+                <!--<android.support.v4.view.ViewPager-->
+                <!--android:id="@+id/viewpager"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/_140sdp"-->
+                <!--android:layout_marginTop="05dp"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:layout_margin="05dp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:layout_marginBottom="05dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--<com.viewpagerindicator.CirclePageIndicator-->
+                <!--android:id="@+id/view"-->
+                <!--android:visibility="gone"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:gravity="bottom"-->
+                <!--android:padding="10dip"-->
+                <!--app:centered="true"-->
+                <!--app:fillColor="#ffffff"-->
+                <!--app:pageColor="#0D0000"-->
+                <!--app:snap="false" />-->
+
+                <!--</RelativeLayout>-->
+                <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:id="@+id/l1_all"-->
+
+                <!--android:layout_below="@+id/banner_l1"-->
+                <!--android:layout_height="@dimen/_90sdp">-->
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_height="@dimen/_90sdp">-->
+                <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/topbannerrc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--</android.support.v7.widget.RecyclerView>-->
+
+                <!--</LinearLayout>-->
+                <!--</RelativeLayout>-->
+                <!--</RelativeLayout>-->
+                <!--<RelativeLayout-->
+
+                <!--android:id="@+id/l1_scratch"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_below="@+id/l1_new"-->
+                <!--android:background="@color/white"-->
+                <!--android:layout_height="@dimen/_120sdp">-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/scratch"-->
+                <!--android:text="Scratch &amp; Earn"-->
+                <!--android:layout_marginLeft="@dimen/_5sdp"-->
+                <!--android:layout_marginTop="@dimen/_10sdp"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+
+
+                <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/rc_scratch"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_below="@+id/scratch"-->
+                <!--android:layout_marginTop="@dimen/_10sdp"-->
+                <!--android:layout_height="wrap_content">-->
+
+
+
+
+                <!--</android.support.v7.widget.RecyclerView>-->
+
+
+
+
+
+                <!--</RelativeLayout>-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_partner"
+                    android:layout_below="@+id/l1_scratch"
+                    android:background="@color/white"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+
+                        android:id="@+id/partner"
+                        android:text="Popular Apps"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/partner"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+
+                            android:id="@+id/partnerrc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="05dp"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+                <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:id="@+id/l1_newsfeed"-->
+                <!--android:layout_below="@+id/l1_partner"-->
+                <!--android:background="@color/white"-->
+                <!--android:layout_marginTop="@dimen/_2sdp"-->
+                <!--android:layout_height="@dimen/_120sdp">-->
+
+                <!--<TextView-->
+
+                <!--android:id="@+id/newsfeed"-->
+                <!--android:text="Society Notice"-->
+                <!--android:textStyle="bold"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_marginLeft="@dimen/_5sdp"-->
+                <!--android:layout_marginTop="@dimen/_5sdp"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+
+                <!--<LinearLayout-->
+
+                <!--android:layout_width="match_parent"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_below="@+id/newsfeed"-->
+                <!--android:background="@color/white"-->
+                <!--android:layout_height="@dimen/_120sdp">-->
+
+                <!--<android.support.v7.widget.RecyclerView-->
+
+                <!--android:id="@+id/newsfeedrc"-->
+                <!--android:layout_marginTop="@dimen/_5sdp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+
+                <!--</android.support.v7.widget.RecyclerView>-->
+
+                <!--</LinearLayout>-->
+
+
+                <!--</RelativeLayout>-->
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_topapps"
+                    android:layout_below="@+id/l1_partner"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/top"
+                        android:text="Top Apps"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/top"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+
+                            android:id="@+id/toprc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="05dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_category"
+                    android:layout_below="@+id/l1_topapps"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/shopping"
+                        android:text="Category"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/shopping"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+
+                            android:id="@+id/categoryrc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="05dp"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_shoppingty"
+                    android:layout_below="@+id/l1_category"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/shoppingtext"
+                        android:text="Shopping"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/shoppingtext"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+
+                            android:id="@+id/shoppingrc"
+                            android:layout_marginBottom="05dp"
+
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_tv"
+                    android:layout_below="@+id/l1_shoppingty"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvtext"
+                        android:text="Hotel"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/tvtext"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_marginBottom="05dp"
+
+                            android:id="@+id/tvrc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_social"
+                    android:layout_below="@+id/l1_tv"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/social"
+                        android:text="Social"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/social"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_marginBottom="05dp"
+
+                            android:id="@+id/socialrc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/l1_travel"
+                    android:layout_below="@+id/l1_social"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/travel"
+                        android:text="Travel"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/travel"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.RecyclerView
+
+                            android:id="@+id/travelrc"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            android:layout_marginBottom="05dp"
+
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_app_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

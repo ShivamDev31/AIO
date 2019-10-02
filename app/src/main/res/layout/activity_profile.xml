@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.goaffilate.app.ProfileActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/top1"
+        android:background="@drawable/background"
+        android:layout_height="300dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_70sdp"
+            android:src="@drawable/shopicon"
+            android:layout_marginTop="70dp"
+            android:id="@+id/user_image"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_70sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:id="@+id/user_name"
+            android:layout_below="@+id/user_image"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/society"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/white"
+                android:text=""/>
+            <View
+                android:layout_width="2dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="match_parent" android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/mb"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text=""/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:shadowColor="@color/black"
+        android:background="@drawable/buttonuplade"
+        android:fontFamily="serif-monospace"
+        android:text=""
+        android:textAllCaps="false"
+        android:textColor="#FA5E13"
+        android:id="@+id/referal"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_below="@+id/referal"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+           android:text=" 1 Referral = ₹25 upto "
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textColor="#269bff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text=" Get upto ₹25 cash when your friend register first time on TownApp. "
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="#111"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+</RelativeLayout>

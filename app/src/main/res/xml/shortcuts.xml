@@ -1,0 +1,16 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="open_cart"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:shortcutShortLabel="@string/short_label"
+        android:shortcutLongLabel="@string/long_label"
+        android:shortcutDisabledMessage="@string/disabled_message">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.shortcuts"
+            android:targetClass="com.example.shortcuts.MainActivity" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

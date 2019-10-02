@@ -1,0 +1,227 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signuppage"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_centerInParent="true"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:id="@+id/top"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:id="@+id/user_image"
+            android:layout_centerHorizontal="true"
+            app:civ_border_color="#DA8307"
+            android:src="@drawable/userimg"
+            app:civ_border_width="@dimen/_2sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"/>
+
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginLeft="-18dp"
+        android:layout_marginTop="@dimen/_58sdp"
+        android:layout_toRightOf="@+id/user_image"
+        android:src="@drawable/add" />
+</RelativeLayout>
+        <EditText
+            android:id="@+id/et_reg_name"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/space_4"
+            android:textSize="14sp"
+            android:hint="User Name"
+            android:paddingLeft="@dimen/_20sdp"
+            android:drawablePadding="10dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/space_5"
+            android:background="@drawable/bbg"
+            android:ems="10"
+            android:inputType="textFilter" />
+
+
+        <EditText
+
+            android:id="@+id/et_req_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="@dimen/space_10"
+            android:textSize="14sp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:hint="Mobile Number"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bbg"
+            android:ems="10"
+            android:inputType="number" />
+
+        <EditText
+
+            android:id="@+id/et_req_refral"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="@dimen/space_10"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:paddingLeft="@dimen/_20sdp"
+            android:hint="Referral Code"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bbg"
+            android:ems="10"
+            android:inputType="text" />
+
+
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:id="@+id/show"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:text=" Have a Referal Code?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:id="@+id/click"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:text="Click Here"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+
+
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:textSize="30sp"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:background="@drawable/cc"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="08dp"
+                android:paddingBottom="08dp"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/rightarrow"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:text="Already Have an Account?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.goaffilate.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:supportsRtl="true" />
+
+    <application
+
+        android:name=".utils.AppController"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/shopicon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/shopicon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".StoreshowActvity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".NotificationShow" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".TransactionActivity" />
+        <activity android:name=".RedeemActivity" />
+        <activity android:name=".Otp_Activity" />
+        <activity android:name=".Select_Society" />
+        <activity android:name=".MyRewardActivity" />
+        <activity android:name=".CreateShortcutcat" />
+        <activity android:name=".CategoryPopup"
+            android:theme="@style/apppopup"/>
+        <activity android:name=".CreateShortcut" />
+        <activity android:name=".ShooCateActivity" />
+        <activity android:name=".NavbarActivity"
+            android:hardwareAccelerated="true"/>
+        <activity
+            android:name=".Scratch"
+            android:theme="@style/apppopup" />
+        <activity
+            android:name=".PopUpWindow"
+            android:theme="@style/apppopup" />
+        <activity android:name=".CategoryWebview"
+            android:hardwareAccelerated="true"/>
+        <activity android:name=".CategoryActivity" />
+        <activity android:name=".BannerActivity" />
+        <activity android:name=".ShoppingActivity"
+            android:hardwareAccelerated="true"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SlideActivity" />
+
+        <receiver android:name=".networkconnectivity.IncomingSms">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+
+
+    </application>
+
+</manifest>

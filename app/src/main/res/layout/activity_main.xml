@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:backgroundTint="@color/white"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_main"
+
+        android:layout_above="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/top"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+        <include layout="@layout/bottom"/>
+    </LinearLayout>
+
+    <!--<android.support.design.widget.NavigationView-->
+        <!--android:id="@+id/nav_view"-->
+        <!--android:layout_width="@dimen/nav_view_width"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:background="@color/white"-->
+        <!--android:backgroundTint="@color/white"-->
+        <!--app:itemBackground="@color/white"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:headerLayout="@layout/nav_header_main"-->
+        <!--app:itemTextAppearance="@style/NavDrawerTextStyle"-->
+        <!--app:itemTextColor="@color/black"-->
+        <!--app:menu="@menu/activity_main_drawer">-->
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rl_welcome"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:id="@+id/home_welcomebt"
+            android:layout_gravity="center"
+            android:background="@drawable/appp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

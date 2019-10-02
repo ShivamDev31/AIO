@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "313984375534",
+    "firebase_url": "https://goaffilate-app.firebaseio.com",
+    "project_id": "goaffilate-app",
+    "storage_bucket": "goaffilate-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313984375534:android:17e43bf72f267a86",
+        "android_client_info": {
+          "package_name": "com.goaffilate.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsNXIyDHvurpBYYX8enMEgofgtCLD-qPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313984375534-ke5ld0echlm8jvmjpjlsf5hfv54nloen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

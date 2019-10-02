@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E2E2E2"
+    tools:context=".MyRewardActivity">
+
+
+
+
+    <android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+        android:layout_below="@+id/app_bar"
+    android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+              android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rewords"
+                    android:layout_height="300dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="165dp"
+                        android:id="@+id/top11"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/currentamountbl"
+                            android:text="Current Balance"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_15sdp"
+
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+
+                            android:text="₹"
+                            android:textSize="@dimen/_15sdp"
+
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/currentamount"
+                    android:text="0"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center|left"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/top11"
+
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/totalrewards"
+                            android:text="Total Earning"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="normal"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+
+
+                <TextView
+
+                    android:text="₹"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/totalamount"
+                    android:text="0"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:id="@+id/redeem"
+                        android:textAllCaps="false"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:alpha="1"
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Redeem"
+                        android:background="@drawable/buttondemo"
+                        android:layout_height="@dimen/_35sdp" />
+
+                </RelativeLayout>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/rewrdsrc"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+</android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#81F5F0F0"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FragmentSetting">
+
+    <!-- TODO: Update blank fragment layout -->
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:background="@drawable/bgmore"
+        android:orientation="horizontal">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="More"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/setting"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="@dimen/_33sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/setting"
+            />
+
+</RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:id="@+id/top"
+        android:background="@drawable/buttonshap"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/_20sdp">
+
+        <View
+
+            android:layout_width="match_parent"
+            android:id="@+id/v2"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_below="@id/l2"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/l2"
+            android:layout_below="@id/v1"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_margin="@dimen/_10sdp"
+
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight=".17"
+                android:src="@drawable/profile"
+                android:layout_height="@dimen/_20sdp" />
+
+            <TextView
+                android:id="@+id/myprofile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transactions"
+                android:layout_weight=".70"
+
+                android:text="Profile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:id="@+id/v3"
+            android:layout_below="@id/l3"
+            android:background="@color/grey" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/l3"
+            android:layout_below="@id/v2"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_margin="@dimen/_10sdp"
+
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight=".17"
+                android:src="@drawable/sharee"
+                android:layout_height="@dimen/_20sdp" />
+
+            <TextView
+
+                android:id="@+id/share"
+                android:layout_width="0dp"
+                android:layout_weight=".70"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myprofile"
+                android:text="Share"
+
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_below="@id/l3"
+            android:background="@color/grey" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/l1"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp"
+    android:layout_margin="@dimen/_10sdp"
+
+    android:weightSum="1"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight=".17"
+        android:src="@drawable/alltransaction"
+        android:layout_height="@dimen/_20sdp" />
+
+        <TextView
+
+            android:id="@+id/transactions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity=""
+            android:layout_weight=".70"
+            android:text="All Transactions"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+
+</LinearLayout>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:id="@+id/v1"
+            android:layout_below="@id/l1"
+            android:background="@color/grey" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/l4"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_margin="@dimen/_10sdp"
+           android:layout_below="@id/v3"
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight=".17"
+                android:src="@drawable/logout"
+                android:layout_height="@dimen/_20sdp" />
+
+            <TextView
+
+                android:id="@+id/logout"
+                android:layout_width="0dp"
+                android:layout_weight=".70"
+                android:layout_height="wrap_content"
+
+                android:text="Log Out"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
