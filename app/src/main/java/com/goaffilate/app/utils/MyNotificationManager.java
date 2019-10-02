@@ -7,13 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 import com.goaffilate.app.Constants;
 import com.goaffilate.app.MainActivity;
 import com.goaffilate.app.R;
-
-import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class MyNotificationManager {
 

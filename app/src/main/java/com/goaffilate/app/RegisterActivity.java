@@ -5,9 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +32,6 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.goaffilate.app.utils.AppController;
 import com.goaffilate.app.utils.BaseURL;
 import com.goaffilate.app.utils.CustomVolleyJsonRequest;
-import com.goaffilate.app.utils.Session_management;
 import com.goaffilate.app.utils.VolleyMultipartRequest;
 import com.google.firebase.iid.FirebaseInstanceId;
 

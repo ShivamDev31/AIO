@@ -3,7 +3,7 @@ package com.goaffilate.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +17,6 @@ import com.goaffilate.app.ProfileActivity;
 import com.goaffilate.app.R;
 import com.goaffilate.app.TransactionActivity;
 import com.goaffilate.app.utils.Session_management;
-
-import java.lang.annotation.Annotation;
 
 /**
  * A simple {@link Fragment} subclass.

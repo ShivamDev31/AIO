@@ -149,7 +149,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
 
                             android:id="@+id/partnerrc"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -159,7 +159,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -238,7 +238,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
 
                             android:id="@+id/toprc"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -247,7 +247,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -280,7 +280,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
 
                             android:id="@+id/categoryrc"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -290,7 +290,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -324,7 +324,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
 
                             android:id="@+id/shoppingrc"
                             android:layout_marginBottom="05dp"
@@ -334,7 +334,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -365,7 +365,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:layout_marginBottom="05dp"
 
                             android:id="@+id/tvrc"
@@ -374,7 +374,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -407,7 +407,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:layout_marginBottom="05dp"
 
                             android:id="@+id/socialrc"
@@ -416,7 +416,7 @@
                             android:layout_height="wrap_content">
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 
@@ -449,7 +449,7 @@
                         android:background="@color/white"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
 
                             android:id="@+id/travelrc"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -458,7 +458,7 @@
                             android:layout_marginBottom="05dp"
 
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
 

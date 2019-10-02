@@ -1,8 +1,8 @@
 package com.goaffilate.app.utils;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
+import androidx.core.view.ViewCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 
 /**

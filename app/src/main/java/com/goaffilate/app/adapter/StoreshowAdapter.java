@@ -1,25 +1,18 @@
 package com.goaffilate.app.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.goaffilate.app.BannerActivity;
-import com.goaffilate.app.PopUpWindow;
 import com.goaffilate.app.R;
-import com.goaffilate.app.ShoppingActivity;
-import com.goaffilate.app.model.StoreshowModel;
 import com.goaffilate.app.model.StoreshowModel;
 import com.goaffilate.app.utils.BaseURL;
 

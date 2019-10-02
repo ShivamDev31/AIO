@@ -2,7 +2,7 @@ package com.goaffilate.app;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -11,8 +11,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import com.goaffilate.app.R;
 
 public class CategoryWebview extends AppCompatActivity {
     WebView web;

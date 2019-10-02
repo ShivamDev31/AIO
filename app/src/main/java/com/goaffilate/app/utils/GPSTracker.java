@@ -15,16 +15,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.util.Log;
-
-import com.goaffilate.app.R;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
-import static android.content.Context.LOCATION_SERVICE;
 
 public class GPSTracker extends Service implements LocationListener {
 

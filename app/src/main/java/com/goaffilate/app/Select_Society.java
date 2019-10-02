@@ -3,12 +3,11 @@ package com.goaffilate.app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,27 +19,19 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.goaffilate.app.adapter.CategoryAdapter;
 import com.goaffilate.app.adapter.Socity_adapter;
-import com.goaffilate.app.model.CategoryModel;
 import com.goaffilate.app.model.Society_model;
 import com.goaffilate.app.utils.AppController;
 import com.goaffilate.app.utils.BaseURL;
 import com.goaffilate.app.utils.CustomVolleyJsonRequest;
 import com.goaffilate.app.utils.Session_management;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Select_Society extends AppCompatActivity implements AdapterView.OnItemSelectedListener{

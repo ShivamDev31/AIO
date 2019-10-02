@@ -1,15 +1,12 @@
 package com.goaffilate.app;
 
 import android.content.SharedPreferences;
-import android.graphics.drawable.Animatable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,13 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.goaffilate.app.Fragment.FragmentSetting;
-import com.goaffilate.app.Fragment.FragmentWelcomeScreen;
-import com.goaffilate.app.adapter.HomeAdapter;
 import com.goaffilate.app.adapter.TransactionAdapter;
-import com.goaffilate.app.model.PartnerModel;
-import com.goaffilate.app.model.Sildermodel;
 import com.goaffilate.app.model.TransactionModel;
 import com.goaffilate.app.utils.AppController;
 import com.goaffilate.app.utils.BaseURL;

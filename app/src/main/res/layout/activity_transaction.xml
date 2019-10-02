@@ -7,7 +7,7 @@
     tools:context=".TransactionActivity">
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/transactionrc"
         android:layout_marginTop="@dimen/_10sdp"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 
