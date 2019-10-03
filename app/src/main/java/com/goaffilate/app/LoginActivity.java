@@ -85,14 +85,22 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     progressDialog.show();
                     progressDialog.setMessage("Loading");
-                    makeRegisterRequest();
+                    //makeRegisterRequest();
                 }
-
+                startMainActivity();
 
             }
         });
 
     }
+
+    private void startMainActivity() {
+        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        Animatoo.animateSlideLeft(LoginActivity.this);
+        startActivity(i);
+        finish();
+    }
+
     private void makeRegisterRequest() {
 
         // Tag used to cancel the request

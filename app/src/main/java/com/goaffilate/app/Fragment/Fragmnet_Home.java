@@ -564,7 +564,7 @@ public class Fragmnet_Home extends Fragment {
             }
         }));
 
-        topbannerrc.setLayoutManager(new GridLayoutManager( getContext(),5));
+        topbannerrc.setLayoutManager(new GridLayoutManager( getContext(),3));
 
         topbannerrc.setHasFixedSize(true);
 
@@ -652,11 +652,9 @@ public class Fragmnet_Home extends Fragment {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setMessage("Check Your Internet Connection")
                     .setCancelable(false)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            //do things
+                    .setPositiveButton("OK", (dialog, id) -> {
+                        //do things
 
-                        }
                     });
             AlertDialog alert = builder.create();
             alert.show();
@@ -734,40 +732,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Group_app, params, new Response.Listener<JSONObject>() {
+                BaseURL.Group_app, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<PartnerModel>>() {
-                            }.getType();
-                            category_modelList = gson.fromJson(response.getString("data"), listType);
-                            adapter = new HomeAdapter(category_modelList);
-                            partnerrc.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<PartnerModel>>() {
+                                }.getType();
+                                category_modelList = gson.fromJson(response.getString("data"), listType);
+                                adapter = new HomeAdapter(category_modelList);
+                                partnerrc.setAdapter(adapter);
+                                adapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -787,40 +777,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Top_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.Top_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopModels>>() {
-                            }.getType();
-                            topModelsList = gson.fromJson(response.getString("data"), listType);
-                            topAdapter = new TopAdapter(topModelsList);
-                            toprc.setAdapter(topAdapter);
-                            topAdapter.notifyDataSetChanged();
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopModels>>() {
+                                }.getType();
+                                topModelsList = gson.fromJson(response.getString("data"), listType);
+                                topAdapter = new TopAdapter(topModelsList);
+                                toprc.setAdapter(topAdapter);
+                                topAdapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -840,40 +822,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Social_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.Social_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopModels>>() {
-                            }.getType();
-                            socialmodelist = gson.fromJson(response.getString("data"), listType);
-                            socialadapter = new CatAdapter(socialmodelist);
-                            socialrc.setAdapter(socialadapter);
-                            socialadapter.notifyDataSetChanged();
+                    try {
+                        if (response != null && response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopModels>>() {
+                                }.getType();
+                                socialmodelist = gson.fromJson(response.getString("data"), listType);
+                                socialadapter = new CatAdapter(socialmodelist);
+                                socialrc.setAdapter(socialadapter);
+                                socialadapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -894,72 +868,64 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Update, params, new Response.Listener<JSONObject>() {
+                BaseURL.Update, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
 
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
+                                JSONObject jsonObject = response.getJSONObject("data");
 
-                            JSONObject jsonObject = response.getJSONObject("data");
+                                value = jsonObject.getString("value");
 
-                            value = jsonObject.getString("value");
+                                if (value.contains(versionName)) {
 
-                            if (value.contains(versionName)) {
+                                } else {
 
-                            } else {
+                                    // Setting Dialog Title
+                                    alertDialog.setTitle("Update found...");
 
-                                // Setting Dialog Title
-                                alertDialog.setTitle("Update found...");
+                                    // Setting Dialog Message
+                                    alertDialog.setMessage("New Version Available");
 
-                                // Setting Dialog Message
-                                alertDialog.setMessage("New Version Available");
+                                    // Setting Icon to Dialog
+                                    alertDialog.setIcon(R.drawable.shopicon);
 
-                                // Setting Icon to Dialog
-                                alertDialog.setIcon(R.drawable.shopicon);
+                                    // Setting Positive "Yes" Button
+                                    alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent i = new Intent(Intent.ACTION_VIEW);
+                                            i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getActivity().getPackageName()));
+                                            startActivity(i);
+                                            // Write your code here to invoke YES event
+                                        }
+                                    });
 
-                                // Setting Positive "Yes" Button
-                                alertDialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent i = new Intent(android.content.Intent.ACTION_VIEW);
-                                        i.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + getActivity().getPackageName()));
-                                        startActivity(i);
-                                        // Write your code here to invoke YES event
-                                    }
-                                });
+                                    // Setting Negative "NO" Button
+                                    alertDialog.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // Write your code here to invoke NO event
+                                            dialog.cancel();
+                                        }
+                                    });
 
-                                // Setting Negative "NO" Button
-                                alertDialog.setNegativeButton("Later", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // Write your code here to invoke NO event
-                                        dialog.cancel();
-                                    }
-                                });
-
-                                // Showing Alert Message
-                                alertDialog.show();
+                                    // Showing Alert Message
+                                    alertDialog.show();
+                                }
                             }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -979,40 +945,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Shopping_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.Shopping_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopModels>>() {
-                            }.getType();
-                            shoppingmodelist = gson.fromJson(response.getString("data"), listType);
-                            shoppingadapter = new ShopingAdpater(shoppingmodelist);
-                            shoppingrc.setAdapter(shoppingadapter);
-                            shoppingadapter.notifyDataSetChanged();
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopModels>>() {
+                                }.getType();
+                                shoppingmodelist = gson.fromJson(response.getString("data"), listType);
+                                shoppingadapter = new ShopingAdpater(shoppingmodelist);
+                                shoppingrc.setAdapter(shoppingadapter);
+                                shoppingadapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1032,40 +990,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.travel_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.travel_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopModels>>() {
-                            }.getType();
-                            travelmodellist = gson.fromJson(response.getString("data"), listType);
-                            traveladapter = new TopAdapter(travelmodellist);
-                            travelrc.setAdapter(traveladapter);
-                            traveladapter.notifyDataSetChanged();
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopModels>>() {
+                                }.getType();
+                                travelmodellist = gson.fromJson(response.getString("data"), listType);
+                                traveladapter = new TopAdapter(travelmodellist);
+                                travelrc.setAdapter(traveladapter);
+                                traveladapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1085,40 +1035,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Hotel_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.Hotel_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopModels>>() {
-                            }.getType();
-                            hotelmodelist = gson.fromJson(response.getString("data"), listType);
-                            hoteladapter = new TopAdapter(hotelmodelist);
-                            hotelrc.setAdapter(hoteladapter);
-                            hoteladapter.notifyDataSetChanged();
+                    try {
+                        if (response != null && response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopModels>>() {
+                                }.getType();
+                                hotelmodelist = gson.fromJson(response.getString("data"), listType);
+                                hoteladapter = new TopAdapter(hotelmodelist);
+                                hotelrc.setAdapter(hoteladapter);
+                                hoteladapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1140,48 +1082,40 @@ public class Fragmnet_Home extends Fragment {
         params.put("user_id", userid);
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.POST,
-                BaseURL.Scratch_APP, params, new Response.Listener<JSONObject>() {
+                BaseURL.Scratch_APP, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
+                    try {
+                        if (response != null && response.length() > 0) {
+                            String status = response.getString("status");
 
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
+                            if (status.contains("1")) {
 
-                        if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<ScratchModel>>() {
+                                }.getType();
+                                scratchModels = gson.fromJson(response.getString("data"), listType);
+                                scratchAdapter = new ScratchAdapter(scratchModels);
+                                rcscratch.setAdapter(scratchAdapter);
+                                scratchAdapter.notifyDataSetChanged();
+                            }
 
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<ScratchModel>>() {
-                            }.getType();
-                            scratchModels = gson.fromJson(response.getString("data"), listType);
-                            scratchAdapter = new ScratchAdapter(scratchModels);
-                            rcscratch.setAdapter(scratchAdapter);
-                            scratchAdapter.notifyDataSetChanged();
+                            else {
+                                l1_scratch.setVisibility(View.GONE);
+
+                            }
+
                         }
-
                         else {
-                            l1_scratch.setVisibility(View.GONE);
-
+                            Toast.makeText(activity, "No Data", Toast.LENGTH_SHORT).show();
                         }
-
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(activity, "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(activity, "Connection time out", Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(activity, "Connection time out", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1201,40 +1135,32 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.GET_CATEGORY_URL, params, new Response.Listener<JSONObject>() {
+                BaseURL.GET_CATEGORY_URL, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<CategoryModel>>() {
-                            }.getType();
-                            cat_list = gson.fromJson(response.getString("data"), listType);
-                            categoryAdapter = new CategoryAdapter(cat_list);
-                            categoryrc.setAdapter(categoryAdapter);
-                            categoryAdapter.notifyDataSetChanged();
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<CategoryModel>>() {
+                                }.getType();
+                                cat_list = gson.fromJson(response.getString("data"), listType);
+                                categoryAdapter = new CategoryAdapter(cat_list);
+                                categoryrc.setAdapter(categoryAdapter);
+                                categoryAdapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1253,42 +1179,34 @@ public class Fragmnet_Home extends Fragment {
         params.put("parent", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Nav_app, params, new Response.Listener<JSONObject>() {
+                BaseURL.Nav_app, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<TopbannerModel>>() {
-                            }.getType();
-                            topbannermodellist = gson.fromJson(response.getString("data"), listType);
-                            topbannerAdapter = new TopbannerAdapter(topbannermodellist);
-                            topbannerrc.setAdapter(topbannerAdapter);
-                            topbannerAdapter.notifyDataSetChanged();
+                    try {
+                        if (response != null && response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<TopbannerModel>>() {
+                                }.getType();
+                                topbannermodellist = gson.fromJson(response.getString("data"), listType);
+                                topbannerAdapter = new TopbannerAdapter(topbannermodellist);
+                                topbannerrc.setAdapter(topbannerAdapter);
+                                topbannerAdapter.notifyDataSetChanged();
+                            }
                         }
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                }, error -> {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+                });
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
@@ -1305,47 +1223,39 @@ public class Fragmnet_Home extends Fragment {
         params.put("user_id", userid);
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.POST,
-                BaseURL.socity_news, params, new Response.Listener<JSONObject>() {
+                BaseURL.socity_news, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
+                                Gson gson = new Gson();
+                                Type listType = new TypeToken<List<newsfeedmodel>>() {
+                                }.getType();
 
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
-                            Gson gson = new Gson();
-                            Type listType = new TypeToken<List<newsfeedmodel>>() {
-                            }.getType();
+                                newsmodellist = gson.fromJson(response.getString("data"), listType);
 
-                            newsmodellist = gson.fromJson(response.getString("data"), listType);
+                                newsfeedAdapter = new NewsfeedAdapter(newsmodellist);
 
-                            newsfeedAdapter = new NewsfeedAdapter(newsmodellist);
+                                newsfeedrc.setAdapter(newsfeedAdapter);
 
-                            newsfeedrc.setAdapter(newsfeedAdapter);
-
-                            newsfeedAdapter.notifyDataSetChanged();
+                                newsfeedAdapter.notifyDataSetChanged();
+                            }
+                            else {
+                                l1_newsfeed.setVisibility(View.GONE);
+                            }
                         }
                         else {
-                            l1_newsfeed.setVisibility(View.GONE);
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
+                }, error -> {
+            VolleyLog.d(TAG, "Error: " + error.getMessage());
+            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1364,106 +1274,96 @@ public class Fragmnet_Home extends Fragment {
         params.put("params", "");
 
         CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,
-                BaseURL.Banner, params, new Response.Listener<JSONObject>() {
+                BaseURL.Banner, params, response -> {
+                    Log.d(TAG, response.toString());
 
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
+                    try {
+                        if (response.length() > 0) {
+                            String status = response.getString("status");
+                            if (status.contains("1")) {
 
-                try {
-                    if (response != null && response.length() > 0) {
-                        String status = response.getString("status");
-                        if (status.contains("1")) {
+                                JSONArray jsonArray = response.getJSONArray("data");
+                                JSONObject objJson = null;
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    objJson = jsonArray.getJSONObject(i);
 
-                            JSONArray jsonArray = response.getJSONArray("data");
-                            JSONObject objJson = null;
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                objJson = jsonArray.getJSONObject(i);
+                                    String name = objJson.getString("banner_name");
 
-                                String name = objJson.getString("banner_name");
+                                    bannerlink = objJson.getString("banner_link");
 
-                                bannerlink = objJson.getString("banner_link");
+                                    String image = objJson.getString("banner_image");
 
-                                String image = objJson.getString("banner_image");
+                                    sildermodelslist.add(new Sildermodel(image, bannerlink));
 
-                                sildermodelslist.add(new Sildermodel(image, bannerlink));
+                                    NUM_PAGES = sildermodelslist.size();
 
-                                NUM_PAGES = sildermodelslist.size();
 
+                                }
 
                             }
+                            if (getActivity()!=null){
+                                final float density = getResources().getDisplayMetrics().density;
+    //
+                                indicator.setRadius(5 * density);
 
-                        }
-                        if (getActivity()!=null){
-                            final float density = getResources().getDisplayMetrics().density;
-//
-                            indicator.setRadius(5 * density);
+                                indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-                            indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                                    @Override
+                                    public void onPageSelected(int position) {
+                                        currentPage = position;
 
-                                @Override
-                                public void onPageSelected(int position) {
-                                    currentPage = position;
+                                    }
 
-                                }
+                                    @Override
+                                    public void onPageScrolled(int pos, float arg1, int arg2) {
 
-                                @Override
-                                public void onPageScrolled(int pos, float arg1, int arg2) {
+                                    }
 
-                                }
+                                    @Override
+                                    public void onPageScrollStateChanged(int pos) {
 
-                                @Override
-                                public void onPageScrollStateChanged(int pos) {
-
-                                }
-                            });
+                                    }
+                                });
 
 
-                            // Auto start of viewpager
-                            final Handler handler = new Handler();
-                            final Runnable Update = new Runnable() {
-                                public void run() {
+                                // Auto start of viewpager
+                                final Handler handler = new Handler();
+                                final Runnable Update = () -> {
                                     if (currentPage == NUM_PAGES) {
                                         currentPage = 0;
                                     }
                                     bannerslider.setCurrentItem(currentPage++, true);
-                                }
-                            };
-                            Timer swipeTimer = new Timer();
-                            swipeTimer.schedule(new TimerTask() {
-                                @Override
-                                public void run() {
-                                    handler.post(Update);
-                                }
-                            }, 3000, 3000);
+                                };
+                                Timer swipeTimer = new Timer();
+                                swipeTimer.schedule(new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        handler.post(Update);
+                                    }
+                                }, 3000, 3000);
 
 
-                            SilderAdapter silderAdapter1 = new SilderAdapter(getContext(), sildermodelslist);
+                                SilderAdapter silderAdapter1 = new SilderAdapter(getContext(), sildermodelslist);
 
-                            bannerslider.setAdapter(silderAdapter1);
+                                bannerslider.setAdapter(silderAdapter1);
 
-                            indicator.setViewPager(bannerslider);
+                                indicator.setViewPager(bannerslider);
 
+                            }
                         }
-                    }
 
-                    else {
-                        Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        else {
+                            Toast.makeText(getActivity(), "No Data", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+                }, error -> {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                        Toast.makeText(getActivity(), getResources().getString(R.string.connection_time_out), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
