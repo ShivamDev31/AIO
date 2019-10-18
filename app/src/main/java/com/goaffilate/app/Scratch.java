@@ -4,7 +4,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -28,15 +27,16 @@ import com.goaffilate.app.utils.AppController;
 import com.goaffilate.app.utils.BaseURL;
 import com.goaffilate.app.utils.CustomVolleyJsonRequest;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import androidx.appcompat.app.AppCompatActivity;
 import in.myinnos.androidscratchcard.ScratchCard;
 
-import static com.goaffilate.app.Fragment.Fragmnet_Home.scratchapps;
+import static com.goaffilate.app.Fragment.FragmentWelcomeScreen.scratchapps;
 
 public class Scratch extends AppCompatActivity {
 ImageView scratchimage;
@@ -96,18 +96,13 @@ Log.d("scratch",id);
             }
         });
 
-        scratchCard.setOnScratchListener(new ScratchCard.OnScratchListener() {
-            @Override
-            public void onScratch(ScratchCard scratchCard, float visiblePercent) {
-                if (visiblePercent > 0.4) {
-                    scratchapps();
-                    scratchCard.setVisibility(View.GONE);
-                    userreward();
-                    Toast.makeText(Scratch.this, textlink, Toast.LENGTH_SHORT).show();
-
-                }
+        scratchCard.setOnScratchListener((scratchCard, visiblePercent) -> {
+            if (visiblePercent > 0.4) {
+                scratchapps();
+                scratchCard.setVisibility(View.GONE);
+                userreward();
+                Toast.makeText(Scratch.this, textlink, Toast.LENGTH_SHORT).show();
             }
-
         });
 
 //        final ScratchImageView scratchTextView = (ScratchImageView) findViewById(R.id.sample_image);

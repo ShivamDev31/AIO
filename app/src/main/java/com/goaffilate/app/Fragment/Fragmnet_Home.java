@@ -1,6 +1,5 @@
 package com.goaffilate.app.Fragment;
 
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -13,18 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -53,7 +40,6 @@ import com.goaffilate.app.BannerActivity;
 import com.goaffilate.app.CategoryWebview;
 import com.goaffilate.app.MainActivity;
 import com.goaffilate.app.NavbarActivity;
-
 import com.goaffilate.app.NewsActivity;
 import com.goaffilate.app.R;
 import com.goaffilate.app.Scratch;
@@ -85,14 +71,11 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.viewpagerindicator.CirclePageIndicator;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -101,6 +84,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -129,7 +127,7 @@ public class Fragmnet_Home extends Fragment {
     String appid, intersitialid, bannerid;
 
     public static Activity activity;
-    public static String userid;
+    public static String userid = "abc";
 
     SearchView searchView;
 
@@ -1072,7 +1070,7 @@ public class Fragmnet_Home extends Fragment {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
     }
 
-    public static void scratchapps() {
+    public void scratchapps() {
 
         String tag_json_obj = "json_category_req";
 
@@ -1115,7 +1113,7 @@ public class Fragmnet_Home extends Fragment {
                 }, error -> {
             VolleyLog.d(TAG, "Error: " + error.getMessage());
             if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                Toast.makeText(activity, "Connection time out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Connection time out", Toast.LENGTH_SHORT).show();
             }
         });
 
