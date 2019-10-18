@@ -58,10 +58,6 @@ public class ScratchAdapter extends RecyclerView.Adapter<ScratchAdapter.MyViewHo
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(holder.image);
-
-
-
-
     }
 
     @Override

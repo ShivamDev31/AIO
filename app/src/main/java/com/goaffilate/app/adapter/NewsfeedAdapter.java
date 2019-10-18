@@ -49,9 +49,6 @@ public class NewsfeedAdapter extends RecyclerView.Adapter<NewsfeedAdapter.MyView
         newsfeedmodel mList = modelList.get(position);
          holder.title.setText(mList.getFeed_heading());
          holder.description.setText(mList.getFeed_description());
-       
-
-
     }
 
     @Override
