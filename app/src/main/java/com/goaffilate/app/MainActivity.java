@@ -6,23 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,19 +34,24 @@ import com.goaffilate.app.Fragment.FragmentSetting;
 import com.goaffilate.app.Fragment.FragmentStore;
 import com.goaffilate.app.Fragment.FragmentWelcomeScreen;
 import com.goaffilate.app.Fragment.Fragmnet_Home;
-import com.google.android.gms.ads.MobileAds;
-
 import com.goaffilate.app.utils.AppController;
 import com.goaffilate.app.utils.BaseURL;
 import com.goaffilate.app.utils.CustomVolleyJsonRequest;
 import com.goaffilate.app.utils.Session_management;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity  implements Animation.AnimationListener {
@@ -200,140 +189,120 @@ RelativeLayout rl_stores;
 //
 //        }
 
+        store.setOnClickListener(v -> {
+            store.setBackground(getResources().getDrawable(R.drawable.storedark));
+            rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
+            home.setBackground(getResources().getDrawable(R.drawable.home));
+            setting.setBackground(getResources().getDrawable(R.drawable.more));
 
+            store_text.setTextColor(getResources().getColor(R.color.text));
+            rewards_text.setTextColor(getResources().getColor(R.color.black));
+            home_text.setTextColor(getResources().getColor(R.color.black));
+            more_text.setTextColor(getResources().getColor(R.color.black));
 
+            Fragment fm12 = new FragmentStore();
+            FragmentManager fragmentManager12 = getSupportFragmentManager();
+            fragmentManager12.beginTransaction()
+                    .replace(R.id.contentPanel, fm12, "Home_fragment")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit();
+            storev = "true";
 
-        store.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                store.setBackground(getResources().getDrawable(R.drawable.storedark));
-                rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
-                home.setBackground(getResources().getDrawable(R.drawable.home));
-                setting.setBackground(getResources().getDrawable(R.drawable.more));
+            if (storev.contains("true")) {
 
-                store_text.setTextColor(getColor(R.color.text));
-                rewards_text.setTextColor(getColor(R.color.black));
-                home_text.setTextColor(getColor(R.color.black));
-                more_text.setTextColor(getColor(R.color.black));
+                store.setEnabled(false);
+                rl_stores.setEnabled(false);
 
-                Fragment fm = new FragmentStore();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.contentPanel, fm, "Home_fragment")
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit();
-                storev="true";
+                home.setEnabled(true);
+                rl_home.setEnabled(true);
 
-                if(storev.contains("true")){
+                rewards.setEnabled(true);
+                rl_rewards.setEnabled(true);
 
-                    store.setEnabled(false);
-                    rl_stores.setEnabled(false);
+                apps.setEnabled(true);
+                rl_apps.setEnabled(true);
 
-                    home.setEnabled(true);
-                    rl_home.setEnabled(true);
+                setting.setEnabled(true);
+                rl_more.setEnabled(true);
+            } else if (storev.contains("false")) {
+                store.setEnabled(true);
+                rl_stores.setEnabled(true);
 
-                    rewards.setEnabled(true);
-                    rl_rewards.setEnabled(true);
+                home.setEnabled(false);
+                rl_home.setEnabled(false);
 
-                    apps.setEnabled(true);
-                    rl_apps.setEnabled(true);
+                rewards.setEnabled(false);
+                rl_rewards.setEnabled(false);
 
-                    setting.setEnabled(true);
-                    rl_more.setEnabled(true);
+                apps.setEnabled(false);
+                rl_apps.setEnabled(false);
 
-                }
-
-                else if (storev.contains("false")){
-                    store.setEnabled(true);
-                    rl_stores.setEnabled(true);
-
-                    home.setEnabled(false);
-                    rl_home.setEnabled(false);
-
-                    rewards.setEnabled(false);
-                    rl_rewards.setEnabled(false);
-
-                    apps.setEnabled(false);
-                    rl_apps.setEnabled(false);
-
-                    setting.setEnabled(false);
-                    rl_more.setEnabled(false);
-
-                }
-                homev="false";
-                rewardsv="false";
-                appsv="false";
-                morev="false";
-
-
+                setting.setEnabled(false);
+                rl_more.setEnabled(false);
             }
+            homev = "false";
+            rewardsv = "false";
+            appsv = "false";
+            morev = "false";
+
+
         });
-        rl_stores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                store.setBackground(getResources().getDrawable(R.drawable.storedark));
-                rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
-                home.setBackground(getResources().getDrawable(R.drawable.home));
-                setting.setBackground(getResources().getDrawable(R.drawable.more));
+        rl_stores.setOnClickListener(v -> {
+            store.setBackground(getResources().getDrawable(R.drawable.storedark));
+            rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
+            home.setBackground(getResources().getDrawable(R.drawable.home));
+            setting.setBackground(getResources().getDrawable(R.drawable.more));
 
+            store_text.setTextColor(getResources().getColor(R.color.text));
+            rewards_text.setTextColor(getResources().getColor(R.color.black));
+            home_text.setTextColor(getResources().getColor(R.color.black));
+            more_text.setTextColor(getResources().getColor(R.color.black));
 
-                store_text.setTextColor(getColor(R.color.text));
-                rewards_text.setTextColor(getColor(R.color.black));
-                home_text.setTextColor(getColor(R.color.black));
-                more_text.setTextColor(getColor(R.color.black));
+            Fragment fm1 = new FragmentStore();
+            FragmentManager fragmentManager1 = getSupportFragmentManager();
+            fragmentManager1.beginTransaction()
+                    .replace(R.id.contentPanel, fm1, "Home_fragment")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit();
+            storev = "true";
 
+            if (storev.contains("true")) {
 
-                Fragment fm = new FragmentStore();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.contentPanel, fm, "Home_fragment")
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit();
-                storev="true";
+                store.setEnabled(false);
+                rl_stores.setEnabled(false);
 
-                if(storev.contains("true")){
+                home.setEnabled(true);
+                rl_home.setEnabled(true);
 
-                    store.setEnabled(false);
-                    rl_stores.setEnabled(false);
+                rewards.setEnabled(true);
+                rl_rewards.setEnabled(true);
 
-                    home.setEnabled(true);
-                    rl_home.setEnabled(true);
+                apps.setEnabled(true);
+                rl_apps.setEnabled(true);
 
-                    rewards.setEnabled(true);
-                    rl_rewards.setEnabled(true);
+                setting.setEnabled(true);
+                rl_more.setEnabled(true);
+            } else if (storev.contains("false")) {
+                store.setEnabled(true);
+                rl_stores.setEnabled(true);
 
-                    apps.setEnabled(true);
-                    rl_apps.setEnabled(true);
+                home.setEnabled(false);
+                rl_home.setEnabled(false);
 
-                    setting.setEnabled(true);
-                    rl_more.setEnabled(true);
+                rewards.setEnabled(false);
+                rl_rewards.setEnabled(false);
 
-                }
+                apps.setEnabled(false);
+                rl_apps.setEnabled(false);
 
-                else if (storev.contains("false")){
-                    store.setEnabled(true);
-                    rl_stores.setEnabled(true);
-
-                    home.setEnabled(false);
-                    rl_home.setEnabled(false);
-
-                    rewards.setEnabled(false);
-                    rl_rewards.setEnabled(false);
-
-                    apps.setEnabled(false);
-                    rl_apps.setEnabled(false);
-
-                    setting.setEnabled(false);
-                    rl_more.setEnabled(false);
-
-                }
-                homev="false";
-                rewardsv="false";
-                appsv="false";
-                morev="false";
-
+                setting.setEnabled(false);
+                rl_more.setEnabled(false);
             }
+            homev = "false";
+            rewardsv = "false";
+            appsv = "false";
+            morev = "false";
+
         });
          home.setOnClickListener(new View.OnClickListener() {
            @RequiresApi(api = Build.VERSION_CODES.M)
@@ -346,10 +315,10 @@ RelativeLayout rl_stores;
                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                        .commit();
 //               apps.setBackground(getResources().getDrawable(R.drawable.appss));
-               store_text.setTextColor(getColor(R.color.black));
-               rewards_text.setTextColor(getColor(R.color.black));
-               home_text.setTextColor(getColor(R.color.text));
-               more_text.setTextColor(getColor(R.color.black));
+               store_text.setTextColor(getResources().getColor(R.color.black));
+               rewards_text.setTextColor(getResources().getColor(R.color.black));
+               home_text.setTextColor(getResources().getColor(R.color.text));
+               more_text.setTextColor(getResources().getColor(R.color.black));
 
 
                store.setBackground(getResources().getDrawable(R.drawable.stores));
@@ -420,10 +389,10 @@ RelativeLayout rl_stores;
                        .commit();
 //               apps.setBackground(getResources().getDrawable(R.drawable.appss));
 
-               store_text.setTextColor(getColor(R.color.black));
-               rewards_text.setTextColor(getColor(R.color.black));
-               home_text.setTextColor(getColor(R.color.text));
-               more_text.setTextColor(getColor(R.color.black));
+               store_text.setTextColor(getResources().getColor(R.color.black));
+               rewards_text.setTextColor(getResources().getColor(R.color.black));
+               home_text.setTextColor(getResources().getColor(R.color.text));
+               more_text.setTextColor(getResources().getColor(R.color.black));
 
                store.setBackground(getResources().getDrawable(R.drawable.stores));
 
@@ -488,10 +457,10 @@ RelativeLayout rl_stores;
                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                        .commit();
 
-               store_text.setTextColor(getColor(R.color.black));
-               rewards_text.setTextColor(getColor(R.color.text));
-               home_text.setTextColor(getColor(R.color.black));
-               more_text.setTextColor(getColor(R.color.black));
+               store_text.setTextColor(getResources().getColor(R.color.black));
+               rewards_text.setTextColor(getResources().getColor(R.color.text));
+               home_text.setTextColor(getResources().getColor(R.color.black));
+               more_text.setTextColor(getResources().getColor(R.color.black));
 
 
 //               apps.setBackground(getResources().getDrawable(R.drawable.appss));
@@ -560,10 +529,10 @@ RelativeLayout rl_stores;
                       .commit();
 //              apps.setBackground(getResources().getDrawable(R.drawable.appss));
 
-              store_text.setTextColor(getColor(R.color.black));
-              rewards_text.setTextColor(getColor(R.color.text));
-              home_text.setTextColor(getColor(R.color.black));
-              more_text.setTextColor(getColor(R.color.black));
+              store_text.setTextColor(getResources().getColor(R.color.black));
+              rewards_text.setTextColor(getResources().getColor(R.color.text));
+              home_text.setTextColor(getResources().getColor(R.color.black));
+              more_text.setTextColor(getResources().getColor(R.color.black));
 
               store.setBackground(getResources().getDrawable(R.drawable.stores));
 
@@ -635,11 +604,10 @@ RelativeLayout rl_stores;
 //               apps.setBackground(getResources().getDrawable(R.drawable.appss));
                store.setBackground(getResources().getDrawable(R.drawable.stores));
 
-
-               store_text.setTextColor(getColor(R.color.black));
-               rewards_text.setTextColor(getColor(R.color.black));
-               home_text.setTextColor(getColor(R.color.black));
-               more_text.setTextColor(getColor(R.color.text));
+               store_text.setTextColor(getResources().getColor(R.color.black));
+               rewards_text.setTextColor(getResources().getColor(R.color.black));
+               home_text.setTextColor(getResources().getColor(R.color.black));
+               more_text.setTextColor(getResources().getColor(R.color.text));
 
                rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
                home.setBackground(getResources().getDrawable(R.drawable.home));
@@ -703,10 +671,10 @@ setting.setOnClickListener(new View.OnClickListener() {
         setting.setBackground(getResources().getDrawable(R.drawable.moredark));
         store.setBackground(getResources().getDrawable(R.drawable.stores));
 
-        store_text.setTextColor(getColor(R.color.black));
-        rewards_text.setTextColor(getColor(R.color.black));
-        home_text.setTextColor(getColor(R.color.black));
-        more_text.setTextColor(getColor(R.color.text));
+        store_text.setTextColor(getResources().getColor(R.color.black));
+        rewards_text.setTextColor(getResources().getColor(R.color.black));
+        home_text.setTextColor(getResources().getColor(R.color.black));
+        more_text.setTextColor(getResources().getColor(R.color.text));
 
 
         rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
@@ -773,10 +741,10 @@ setting.setOnClickListener(new View.OnClickListener() {
                 setting.setBackground(getResources().getDrawable(R.drawable.more));
 //                apps.setBackground(getResources().getDrawable(R.drawable.appsiconn));
                 store.setBackground(getResources().getDrawable(R.drawable.stores));
-                store_text.setTextColor(getColor(R.color.black));
-                rewards_text.setTextColor(getColor(R.color.black));
-                home_text.setTextColor(getColor(R.color.black));
-                more_text.setTextColor(getColor(R.color.black));
+                store_text.setTextColor(getResources().getColor(R.color.black));
+                rewards_text.setTextColor(getResources().getColor(R.color.black));
+                home_text.setTextColor(getResources().getColor(R.color.black));
+                more_text.setTextColor(getResources().getColor(R.color.black));
 
                 rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
                 home.setBackground(getResources().getDrawable(R.drawable.home));
@@ -841,10 +809,10 @@ setting.setOnClickListener(new View.OnClickListener() {
                         .commit();
                 setting.setBackground(getResources().getDrawable(R.drawable.more));
                 store.setBackground(getResources().getDrawable(R.drawable.stores));
-                store_text.setTextColor(getColor(R.color.black));
-                rewards_text.setTextColor(getColor(R.color.black));
-                home_text.setTextColor(getColor(R.color.black));
-                more_text.setTextColor(getColor(R.color.black));
+                store_text.setTextColor(getResources().getColor(R.color.black));
+                rewards_text.setTextColor(getResources().getColor(R.color.black));
+                home_text.setTextColor(getResources().getColor(R.color.black));
+                more_text.setTextColor(getResources().getColor(R.color.black));
 
                 rewards.setBackground(getResources().getDrawable(R.drawable.rewards));
 //                apps.setBackground(getResources().getDrawable(R.drawable.appsiconn));
@@ -907,8 +875,8 @@ setting.setOnClickListener(new View.OnClickListener() {
 
         userimgae=sharedPreferences.getString("user_image","");
 
-        home_text.setTextColor(getColor(R.color.text));
-//        more_text.setTextColor(getColor(R.color.black));
+        home_text.setTextColor(getResources().getColor(R.color.text));
+//        more_text.setTextColor(getResources().getColor(R.color.black));
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -933,12 +901,9 @@ setting.setOnClickListener(new View.OnClickListener() {
 
 //        notify=toolbar.findViewById(R.id.notify);
 
-gifImageView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent intent=new Intent(MainActivity.this,NotificationActivity.class);
-        startActivity(intent);
-    }
+        gifImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            startActivity(intent);
 });
 
         title.setText(username+ " "+"!");

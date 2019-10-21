@@ -2,8 +2,8 @@ package com.goaffilate.app.utils;
 
 public class BaseURL {
 
-    //public static String BASE_URL = "https://thecodecafe.in/goaffiliate/api/";
-    public static String BASE_URL = "http://159.89.161.87/api/";
+    public static String BASE_URL = "https://thecodecafe.in/goaffiliate/api/";
+    //public static String BASE_URL = "http://159.89.161.87/api/";
 
     public static String GET_CATEGORY_URL = BASE_URL + "categoryApp";
 
