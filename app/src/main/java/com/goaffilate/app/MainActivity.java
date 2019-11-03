@@ -1,7 +1,6 @@
 package com.goaffilate.app;
 
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
@@ -104,12 +103,6 @@ public class MainActivity extends AppCompatActivity  implements Animation.Animat
      String username;
 RelativeLayout rl_stores;
     TextView  title;
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-
-        super.attachBaseContext(newBase);
-    }
 
     @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.M)

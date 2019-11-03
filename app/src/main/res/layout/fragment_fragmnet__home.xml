@@ -172,56 +172,54 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
+                <!--                <RelativeLayout-->
 
-                    android:layout_width="match_parent"
-                    android:id="@+id/l1_newsfeed"
-                    android:layout_below="@+id/l1_partner"
-                    android:layout_height="wrap_content">
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:id="@+id/l1_newsfeed"-->
+                <!--                    android:layout_below="@+id/l1_partner"-->
+                <!--                    android:layout_height="wrap_content">-->
 
-                    <TextView
-                        android:id="@+id/newsfeed"
-                        android:text="Notice"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="03dp"
-                        android:gravity="center_horizontal"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginTop="05dp"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/newsfeed"-->
+                <!--                        android:text="Notice"-->
+                <!--                        android:textStyle="bold"-->
+                <!--                        android:layout_marginBottom="03dp"-->
+                <!--                        android:gravity="center_horizontal"-->
+                <!--                        android:layout_marginLeft="@dimen/_5sdp"-->
+                <!--                        android:layout_marginTop="05dp"-->
+                <!--                        android:textColor="@color/black"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content" />-->
 
-                    <LinearLayout
+                <!--                    <LinearLayout-->
 
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:background="@color/grey"
-                        android:layout_below="@+id/newsfeed"
-                        android:layout_height="@dimen/_80sdp">
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        android:background="@color/grey"-->
+                <!--                        android:layout_below="@+id/newsfeed"-->
+                <!--                        android:layout_height="@dimen/_80sdp">-->
 
-                        <androidx.recyclerview.widget.RecyclerView
+                <!--                        <androidx.recyclerview.widget.RecyclerView-->
 
-                            android:id="@+id/newsfeedrc"
-                            android:background="@color/grey"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                <!--                            android:id="@+id/newsfeedrc"-->
+                <!--                            android:background="@color/grey"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content">-->
 
-                        </androidx.recyclerview.widget.RecyclerView>
+                <!--                        </androidx.recyclerview.widget.RecyclerView>-->
 
-                    </LinearLayout>
+                <!--                    </LinearLayout>-->
 
-
-                </RelativeLayout>
+                <!--                </RelativeLayout>-->
 
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:id="@+id/l1_topapps"
-
                     android:layout_marginTop="05dp"
                     android:layout_marginBottom="02dp"
-                    android:layout_below="@+id/l1_newsfeed"
+                  android:layout_below="@+id/l1_partner"
                     android:background="@color/white"
                     android:paddingBottom="10dp"
                     android:layout_height="wrap_content">
@@ -303,7 +301,6 @@
 
 
                 <WebView
-
                     android:id="@+id/webview"
 
                     android:layout_below="@+id/l1_category"

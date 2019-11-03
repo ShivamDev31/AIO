@@ -3,20 +3,9 @@ package com.goaffilate.app;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.core.view.MenuItemCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
@@ -30,41 +19,48 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import com.goaffilate.app.adapter.TestFragment;
 import com.goaffilate.app.utils.BaseURL;
 import com.goaffilate.app.utils.ConnectivityReceiver;
 import com.goaffilate.app.utils.CustomViewPager;
+import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class ShoppingActivity extends AppCompatActivity {
-String appname,applink,categoryname;
 
-     SparseArray<TestFragment> mTestFragments,searchfragments;
-     PagerAdapter mPagerAdapter;
-
-     Searchtheadapter searchadapter;
-    private int key=0;
+    public String appcolour;
+    String appname, applink, categoryname;
+    SparseArray<TestFragment> mTestFragments, searchfragments;
+    PagerAdapter mPagerAdapter;
+    Searchtheadapter searchadapter;
 
     AutoCompleteTextView autoCompleteTextView;
 
     String search_item;
-
-    ArrayList<String> imagelist=new ArrayList<>();
+    ArrayList<String> imagelist = new ArrayList<>();
 
     SearchView searchView;
     Toolbar toolbar;
     private boolean doNotifyDataSetChangedOnce = false;
 
-    ArrayList<String> mylist=new ArrayList<>();
+    ArrayList<String> mylist = new ArrayList<>();
     LinearLayout l1;
-    public  String appcolour;
+    private int key = 0;
     TabLayout tabLayout;
     String applogo;
     CustomViewPager viewPager;
@@ -81,21 +77,17 @@ String appname,applink,categoryname;
 
         setSupportActionBar(toolbar);
 
-
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        searchView=findViewById(R.id.search_view_store);
+        searchView = findViewById(R.id.search_view_store);
 
-        searchView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+        searchView.setOnTouchListener((v, event) -> {
 
-                searchView.setFocusable(true);
-                searchView.setIconified(false);
-                return true;
-            }
+            searchView.setFocusable(true);
+            searchView.setIconified(false);
+            return true;
         });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -105,43 +97,32 @@ String appname,applink,categoryname;
 
                 searchdata();
 
-                doNotifyDataSetChangedOnce=true;
-
+                doNotifyDataSetChangedOnce = true;
 
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String s)
-            {
+            public boolean onQueryTextChange(String s) {
 
                 return false;
             }
-
         });
-
-
-
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
-
         viewPager = (CustomViewPager) findViewById(R.id.pager);
-                 /* limit is a fixed integer*/
+        /* limit is a fixed integer*/
 
         viewPager.setOffscreenPageLimit(key);
-          categoryname=getIntent().getStringExtra("category_name");
-        if (categoryname.contains("Shopping")){
+        categoryname = getIntent().getStringExtra("category_name");
+        if (categoryname.contains("Shopping")) {
             toolbar.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             toolbar.setVisibility(View.GONE);
         }
 
-
         tabLayout.setupWithViewPager(viewPager);
-
-
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -153,27 +134,22 @@ String appname,applink,categoryname;
 
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if (categoryname.contains("Shopping")){
+                if (categoryname.contains("Shopping")) {
                     viewPager.setPagingEnabled(false);
 
-                    if (tab.getPosition()==0){
+                    if (tab.getPosition() == 0) {
 
                         tabLayout.setBackgroundColor(Color.parseColor("#232f3e"));
                         toolbar.setBackgroundColor(Color.parseColor("#232f3e"));
-                    }
-                    else if (tab.getPosition()==1){
+                    } else if (tab.getPosition() == 1) {
                         tabLayout.setBackgroundColor(Color.parseColor("#2874f0"));
                         toolbar.setBackgroundColor(Color.parseColor("#2874f0"));
-                    }
-                    else if (tab.getPosition()==2){
+                    } else if (tab.getPosition() == 2) {
                         tabLayout.setBackgroundColor(Color.parseColor("#e40046"));
                         toolbar.setBackgroundColor(Color.parseColor("#e40046"));
-                    }
-
-                    else {
+                    } else {
                         tabLayout.setBackgroundColor(Color.parseColor("#FF0E709C"));
                         toolbar.setBackgroundColor(Color.parseColor("#FF0E709C"));
-
                     }
                 }
 //
@@ -186,9 +162,7 @@ String appname,applink,categoryname;
 
 //                    }
                     }
-
                 }
-
             }
 
             @Override
@@ -207,7 +181,7 @@ String appname,applink,categoryname;
 
         mTestFragments = new SparseArray<>();
 
-        searchfragments=new SparseArray<>();
+        searchfragments = new SparseArray<>();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -217,8 +191,8 @@ String appname,applink,categoryname;
 
             @Override
             public void onPageSelected(int position) {
-                mCurPos=position;
-                Log.d("sort:", "onPageSelected: "+position);
+                mCurPos = position;
+                Log.d("sort:", "onPageSelected: " + position);
             }
 
             @Override
@@ -227,15 +201,10 @@ String appname,applink,categoryname;
             }
         });
 
-
-
-        if (ConnectivityReceiver.isConnected()){
+        if (ConnectivityReceiver.isConnected()) {
 
             getdata();
-
-
-        }
-        else {
+        } else {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(ShoppingActivity.this);
             builder.setMessage("Check Your Internet Connection")
@@ -248,23 +217,17 @@ String appname,applink,categoryname;
                     });
             AlertDialog alert = builder.create();
             alert.show();
-
-
-
         }
-
-
     }
+
     private void getdata() {
-           imagelist.clear();
+        imagelist.clear();
         String JSON_URL = BaseURL.Group_app;
         //creating a string request to send request to the url
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-
 
                         try {
                             //getting the whole json object from the response
@@ -273,64 +236,54 @@ String appname,applink,categoryname;
                             //we have the array named hero inside the object
                             //so here we are getting that json array
                             JSONArray heroArray = obj.getJSONArray("data");
-for (int j=0;j<heroArray.length();j++) {
+                            for (int j = 0; j < heroArray.length(); j++) {
 
+                                JSONObject appobj = heroArray.getJSONObject(j);
 
-    JSONObject appobj = heroArray.getJSONObject(j);
+                                String cat_name = appobj.getString("group_name");
 
-    String cat_name=appobj.getString("group_name");
+                                if (categoryname.contains(cat_name)) {
+                                    JSONArray apparray = appobj.getJSONArray("app");
 
-    if (categoryname.contains(cat_name)){
-        JSONArray apparray = appobj.getJSONArray("app");
+                                    //now looping through all the elements of the json array
 
-
-        //now looping through all the elements of the json array
-
-        for (int i = 0; i < apparray.length(); i++) {
-            if (i < apparray.length()) {
+                                    for (int i = 0; i < apparray.length(); i++) {
+                                        if (i < apparray.length()) {
 //                if (cat_name.contains("Social")){
 ////                    l1.setVisibility(View.GONE);
 //                }
-                JSONObject heroObject1 = apparray.getJSONObject(i);
+                                            JSONObject heroObject1 = apparray.getJSONObject(i);
 
-                if (heroObject1 != null) {
+                                            if (heroObject1 != null) {
 
-                    appname = heroObject1.getString("app_name");
+                                                appname = heroObject1.getString("app_name");
 
-                    applogo=BaseURL.IMG_CATEGORY_URL+heroObject1.getString("app_logo");
+                                                applogo = BaseURL.IMG_CATEGORY_URL + heroObject1.getString("app_logo");
 
-                    applink = heroObject1.getString("app_link");
+                                                applink = heroObject1.getString("app_link");
 
+                                                appcolour = heroObject1.getString("app_hex_code");
 
-                    appcolour=heroObject1.getString("app_hex_code");
+                                                mylist.add(appname);
 
-                    mylist.add(appname);
+                                                imagelist.add(applogo);
+                                            }
+                                        }
 
-                    imagelist.add(applogo);
+                                        mTestFragments.put(key++, TestFragment.newInstance(applink, appname));
+                                    }
+                                }
+                            }
+                            if (categoryname.contains("Shopping")) {
+                                mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), mTestFragments);
 
+                                viewPager.setAdapter(mPagerAdapter);
+                            } else {
+                                imageadapter iaa = new imageadapter(getSupportFragmentManager(), mTestFragments);
+                                viewPager.setAdapter(iaa);
+                            }
 
-                }
-            }
-
-            mTestFragments.put(key++, TestFragment.newInstance(applink, appname));
-
-        }
-
-    }
-
-}
-if (categoryname.contains("Shopping")){
-    mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), mTestFragments);
-
-    viewPager.setAdapter(mPagerAdapter);
-
-}
-else {
-    imageadapter iaa=new imageadapter(getSupportFragmentManager(),mTestFragments);
-    viewPager.setAdapter(iaa);
-}
-
-                            doNotifyDataSetChangedOnce=true;
+                            doNotifyDataSetChangedOnce = true;
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -349,21 +302,18 @@ else {
 
         //adding the string request to request queue
         requestQueue.add(stringRequest);
-
     }
 
-    public void searchdata(){
+    public void searchdata() {
 
-      searchfragments.clear();
+        searchfragments.clear();
 
-      String JSON_URL = BaseURL.Search_APP;
+        String JSON_URL = BaseURL.Search_APP;
         //creating a string request to send request to the url
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-
 
                         try {
                             //getting the whole json object from the response
@@ -372,16 +322,14 @@ else {
                             //we have the array named hero inside the object
                             //so here we are getting that json array
                             JSONArray heroArray = obj.getJSONArray("data");
-                            for (int j=0;j<heroArray.length();j++) {
-
+                            for (int j = 0; j < heroArray.length(); j++) {
 
                                 JSONObject appobj = heroArray.getJSONObject(j);
 
-                                String cat_name=appobj.getString("group_name");
-                                if (categoryname.contains(cat_name)){
+                                String cat_name = appobj.getString("group_name");
+                                if (categoryname.contains(cat_name)) {
 
                                     JSONArray apparray = appobj.getJSONArray("app");
-
 
                                     //now looping through all the elements of the json array
 
@@ -393,30 +341,21 @@ else {
                                             if (heroObject1 != null) {
 
                                                 appname = heroObject1.getString("app_name");
-                                                  applogo =heroObject1.getString("app_logo");
+                                                applogo = heroObject1.getString("app_logo");
                                                 applink = heroObject1.getString("app_link");
-                                                appcolour=heroObject1.getString("app_hex_code");
+                                                appcolour = heroObject1.getString("app_hex_code");
                                                 mylist.add(appname);
                                             }
                                         }
 
-                                        searchfragments.put(key++, TestFragment.newInstance(applink+search_item, appname));
-
+                                        searchfragments.put(key++, TestFragment.newInstance(applink + search_item, appname));
                                     }
                                 }
-
                             }
 
                             searchadapter = new Searchtheadapter(getSupportFragmentManager(), searchfragments);
 
                             viewPager.setAdapter(searchadapter);
-
-
-
-
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -435,9 +374,8 @@ else {
 
         //adding the string request to request queue
         requestQueue.add(stringRequest);
-
-
     }
+
     public void wrapTabIndicatorToTitle(TabLayout tabLayout, int externalMargin, int internalMargin) {
         View tabStrip = tabLayout.getChildAt(0);
         if (tabStrip instanceof ViewGroup) {
@@ -473,11 +411,9 @@ else {
         }
     }
 
-    public  class PagerAdapter extends FragmentPagerAdapter {
-
+    public class PagerAdapter extends FragmentPagerAdapter {
 
         SparseArray<TestFragment> mTestFragments;
-
 
         public PagerAdapter(FragmentManager fm, SparseArray<TestFragment> testFragments) {
             super(fm);
@@ -488,7 +424,7 @@ else {
 
         public Fragment getItem(int position) {
 
-            TestFragment testFragment=mTestFragments.valueAt(position);
+            TestFragment testFragment = mTestFragments.valueAt(position);
 
             return testFragment;
         }
@@ -497,9 +433,7 @@ else {
         public CharSequence getPageTitle(int position) {
 
             return mylist.get(position);
-
         }
-
 
         @Override
         public int getCount() {
@@ -510,9 +444,7 @@ else {
             }
 
             return mTestFragments.size();
-
         }
-
 
         @Override
         public long getItemId(int position) {
@@ -534,8 +466,6 @@ else {
         @Override
         public int getItemPosition(Object object) {
             return POSITION_NONE;
-
-
         }
 
         @Override
@@ -543,11 +473,10 @@ else {
             super.setPrimaryItem(container, position, object);
         }
     }
-    public  class imageadapter extends FragmentPagerAdapter {
 
+    public class imageadapter extends FragmentPagerAdapter {
 
         SparseArray<TestFragment> mTestFragments;
-
 
         public imageadapter(FragmentManager fm, SparseArray<TestFragment> testFragments) {
             super(fm);
@@ -558,13 +487,10 @@ else {
 
         public Fragment getItem(int position) {
 
-            TestFragment testFragment=mTestFragments.valueAt(position);
+            TestFragment testFragment = mTestFragments.valueAt(position);
 
             return testFragment;
         }
-
-
-
 
         @Override
         public int getCount() {
@@ -575,9 +501,7 @@ else {
             }
 
             return mTestFragments.size();
-
         }
-
 
         @Override
         public long getItemId(int position) {
@@ -599,8 +523,6 @@ else {
         @Override
         public int getItemPosition(Object object) {
             return POSITION_NONE;
-
-
         }
 
         @Override
@@ -609,8 +531,7 @@ else {
         }
     }
 
-
-//    @Override
+    //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()) {
 //            case android.R.id.home:
@@ -619,11 +540,9 @@ else {
 //        }
 //        return true;
 //    }
-    public  class Searchtheadapter extends FragmentPagerAdapter {
-
+    public class Searchtheadapter extends FragmentPagerAdapter {
 
         SparseArray<TestFragment> mTestFragments;
-
 
         public Searchtheadapter(FragmentManager fm, SparseArray<TestFragment> testFragments) {
             super(fm);
@@ -633,13 +552,15 @@ else {
         @Override
         public Fragment getItem(int position) {
 
-            TestFragment testFragment=mTestFragments.valueAt(position);
+            TestFragment testFragment = mTestFragments.valueAt(position);
             return testFragment;
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
             return mylist.get(position);
         }
+
         @Override
         public int getCount() {
             if (doNotifyDataSetChangedOnce) {
@@ -649,7 +570,6 @@ else {
 
             return mTestFragments.size();
         }
-
 
         @Override
         public long getItemId(int position) {
@@ -671,10 +591,7 @@ else {
         @Override
         public int getItemPosition(Object object) {
             return POSITION_NONE;
-
-
         }
-
 
         @Override
         public void setPrimaryItem(ViewGroup container, int position, Object object) {

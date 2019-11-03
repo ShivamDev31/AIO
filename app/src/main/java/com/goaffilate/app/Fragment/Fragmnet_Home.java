@@ -40,7 +40,6 @@ import com.goaffilate.app.BannerActivity;
 import com.goaffilate.app.CategoryWebview;
 import com.goaffilate.app.MainActivity;
 import com.goaffilate.app.NavbarActivity;
-import com.goaffilate.app.NewsActivity;
 import com.goaffilate.app.R;
 import com.goaffilate.app.Scratch;
 import com.goaffilate.app.adapter.CatAdapter;
@@ -232,11 +231,11 @@ public class Fragmnet_Home extends Fragment {
 
         userid = sharedPreferences.getString("user", "");
 
-        l1_newsfeed = view.findViewById(R.id.l1_newsfeed);
+        //l1_newsfeed = view.findViewById(R.id.l1_newsfeed);
 
         username = sharedPreferences.getString("username", "");
 
-        newsfeedrc = view.findViewById(R.id.newsfeedrc);
+        //newsfeedrc = view.findViewById(R.id.newsfeedrc);
 
         MainActivity.toolbar.setVisibility(View.VISIBLE);
 
@@ -597,34 +596,34 @@ public class Fragmnet_Home extends Fragment {
         }));
         LinearLayoutManager gridLayoutManagernews = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        newsfeedrc.setLayoutManager(gridLayoutManagernews);
-
-        newsfeedrc.setHasFixedSize(true);
-
-        // rv_items.addItemDecoration(new GridSpacingItemDecoration(10, dpToPx(-25), true));
-        newsfeedrc.setItemAnimator(new DefaultItemAnimator());
-
-        newsfeedrc.setNestedScrollingEnabled(false);
-
-        newsfeedrc.addOnItemTouchListener(new RecyclerTouchListener(getContext(), newsfeedrc, new RecyclerTouchListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-
-                Intent intent = new Intent(getContext(), NewsActivity.class);
-                intent.putExtra("newsheading", newsmodellist.get(position).getFeed_heading());
-                intent.putExtra("newsdesi",newsmodellist.get(position).getFeed_description());
-                startActivity(intent);
+//        newsfeedrc.setLayoutManager(gridLayoutManagernews);
 //
-//                Intent intent = new Intent(getContext(), CategoryWebview.class);
-//                intent.putExtra("categorylink", newsfeedmodel.get(position).getApp_link());
+//        newsfeedrc.setHasFixedSize(true);
+//
+//        // rv_items.addItemDecoration(new GridSpacingItemDecoration(10, dpToPx(-25), true));
+//        newsfeedrc.setItemAnimator(new DefaultItemAnimator());
+//
+//        newsfeedrc.setNestedScrollingEnabled(false);
+//
+//        newsfeedrc.addOnItemTouchListener(new RecyclerTouchListener(getContext(), newsfeedrc, new RecyclerTouchListener.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//
+//                Intent intent = new Intent(getContext(), NewsActivity.class);
+//                intent.putExtra("newsheading", newsmodellist.get(position).getFeed_heading());
+//                intent.putExtra("newsdesi",newsmodellist.get(position).getFeed_description());
 //                startActivity(intent);
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
-            }
-        }));
+////
+////                Intent intent = new Intent(getContext(), CategoryWebview.class);
+////                intent.putExtra("categorylink", newsfeedmodel.get(position).getApp_link());
+////                startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onLongItemClick(View view, int position) {
+//
+//            }
+//        }));
 
 
         if (ConnectivityReceiver.isConnected()) {
@@ -633,7 +632,7 @@ public class Fragmnet_Home extends Fragment {
             makepartner();
             topapps();
             banner();
-            updateapp();
+            //updateapp();
             categoryapps();
             socialapps();
             travelapps();
@@ -641,7 +640,7 @@ public class Fragmnet_Home extends Fragment {
             hotelapps();
             shoppingapps();
             dailylogiun();
-            newsfeedapp();
+            //newsfeedapp();
             topbannerapp();
 
         } else {
@@ -902,11 +901,9 @@ public class Fragmnet_Home extends Fragment {
                                     });
 
                                     // Setting Negative "NO" Button
-                                    alertDialog.setNegativeButton("Later", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            // Write your code here to invoke NO event
-                                            dialog.cancel();
-                                        }
+                                    alertDialog.setNegativeButton("Later", (dialog, which) -> {
+                                        // Write your code here to invoke NO event
+                                        dialog.cancel();
                                     });
 
                                     // Showing Alert Message

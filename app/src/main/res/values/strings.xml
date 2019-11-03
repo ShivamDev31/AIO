@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Go Affiliate</string>
+  <string name="app_name">AIO</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="short_label">Value</string>

@@ -2,8 +2,8 @@ package com.goaffilate.app.utils;
 
 public class BaseURL {
 
-    public static String BASE_URL = "https://thecodecafe.in/goaffiliate/api/";
-    //public static String BASE_URL = "http://159.89.161.87/api/";
+    //public static String BASE_URL = "https://thecodecafe.in/goaffiliate/api/";
+    public static String BASE_URL = "http://159.89.161.87/api/";
 
     public static String GET_CATEGORY_URL = BASE_URL + "categoryApp";
 
@@ -45,7 +45,7 @@ public class BaseURL {
     public static String Banner = BASE_URL + "banner";
     public static String Rewards_Scratch=BASE_URL+"userScratchCard";
 
-    public static String IMG_CATEGORY_URL = "https://thecodecafe.in/goaffiliate/";
+    public static String IMG_CATEGORY_URL = "http://159.89.161.87/";
 
     public static final String PREFS_NAME = "GoAffilate";
 

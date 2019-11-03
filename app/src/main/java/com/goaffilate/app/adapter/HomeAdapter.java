@@ -2,7 +2,6 @@ package com.goaffilate.app.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,8 @@ import com.goaffilate.app.model.PartnerModel;
 import com.goaffilate.app.utils.BaseURL;
 
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
@@ -57,24 +58,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public void onBindViewHolder(HomeAdapter.MyViewHolder holder, final int position) {
         PartnerModel mList = modelList.get(position);
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, PopUpWindow.class);
-                intent.putExtra("cat_image",BaseURL.IMG_CATEGORY_URL+mList.getGroup_image());
-                intent.putExtra("catname",mList.getGroup_name());
-                intent.putExtra("id",mList.getId());
-                context.startActivity(intent);
-            }
+        holder.button.setOnClickListener(v -> {
+            Intent intent = new Intent(context, PopUpWindow.class);
+            intent.putExtra("cat_image", BaseURL.IMG_CATEGORY_URL + mList.getGroup_image());
+            intent.putExtra("catname", mList.getGroup_name());
+            intent.putExtra("id", mList.getId());
+            context.startActivity(intent);
         });
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent=new Intent(context, ShoppingActivity.class);
-                intent.putExtra("category_name",modelList.get(position).getGroup_name());
-                context.startActivity(intent);
-            }
+        holder.image.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ShoppingActivity.class);
+            intent.putExtra("category_name", modelList.get(position).getGroup_name());
+            context.startActivity(intent);
         });
 
         Glide.with(context)

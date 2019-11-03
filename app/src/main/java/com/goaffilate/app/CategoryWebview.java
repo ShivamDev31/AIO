@@ -2,15 +2,15 @@ package com.goaffilate.app;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CategoryWebview extends AppCompatActivity {
     WebView web;
@@ -46,17 +46,14 @@ public class CategoryWebview extends AppCompatActivity {
 
         web.canGoBack();
 
-        web.setOnKeyListener(new View.OnKeyListener() {
-
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == android.view.KeyEvent.KEYCODE_BACK
-                        && event.getAction() == MotionEvent.ACTION_UP
-                        && web.canGoBack()) {
-                    web.goBack();
-                    return true;
-                }
-                return false;
+        web.setOnKeyListener((v, keyCode, event) -> {
+            if (keyCode == KeyEvent.KEYCODE_BACK
+                    && event.getAction() == MotionEvent.ACTION_UP
+                    && web.canGoBack()) {
+                web.goBack();
+                return true;
             }
+            return false;
         });
     }
 
